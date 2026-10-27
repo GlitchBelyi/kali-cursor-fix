@@ -7,15 +7,17 @@ Fix for the missing mouse cursor in Kali Linux on VMware.
 - Blacklists the `vmwgfx` module
 - Sets Xorg to use the `modesetting` driver with a software cursor
 
-Safe to run multiple times.
-
 ## Usage
-If the mouse is invisible, press Ctrl+Alt+F3 to open a TTY and log in, then:
+1. Download `fix-cursor_VM.sh` from this repository (click the file, then "Download raw file").
+2. Open a terminal in the folder where the file is saved and run:
 
-    curl -O https://raw.githubusercontent.com/GlitchBelyi/kali-cursor-fix/main/fix-cursor_VM.sh
-    sudo bash fix-cursor_VM.sh
+       sudo bash fix-cursor_VM.sh
 
-Reboot when prompted.
+3. Reboot when the script asks.
+
+If the mouse is invisible, press Ctrl+Alt+F3 to open a TTY and log in with the keyboard first.
+
+One run + reboot is enough. Running it again is harmless (it skips what is already done).
 
 ## Notes
 - Take a VM snapshot before running.
@@ -28,4 +30,5 @@ Reboot when prompted.
     sudo rm /etc/X11/xorg.conf.d/10-modesetting.conf
     sudo update-initramfs -u && sudo reboot
 
-Use at your own risk.
+## License
+MIT. Use at your own risk.
